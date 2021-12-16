@@ -1,7 +1,7 @@
 format 224
 "projet" // projet
-  revision 1
-  modified_by 45 "o2180845"
+  revision 2
+  modified_by 12 "clement"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -74,7 +74,6 @@ ${members}}
 	    classrelation_ref 128045 // <generalisation>
 	  b parent class_ref 128301 // consommer
       end
-
     end
 
     class 128301 "consommer"
@@ -351,12 +350,70 @@ ${members}}
 	  b parent class_ref 130221 // Classe
       end
 
-      classrelation 132397 // <generalisation>
-	relation 131885 ---|>
-	  a public
-	    java "${type}"
-	    classrelation_ref 132397 // <generalisation>
+      classrelation 132397 // <unidirectional association>
+	relation 131885 --->
+	  a role_name "" multiplicity "1" public
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 132397 // <unidirectional association>
 	  b parent class_ref 130349 // Inventaire
+      end
+
+      attribute 128012 "Vie"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128396 // seSituer (<unidirectional association>)
+	relation 128396 --->
+	  a role_name "seSituer" multiplicity "0..1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 128396 // seSituer (<unidirectional association>)
+	  b parent class_ref 128813 // Piece
+      end
+
+      attribute 128140 "Defence"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128268 "Attaque"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 128012 "attaquer"
+	public explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
       end
     end
 
@@ -582,6 +639,37 @@ ${members}}
 	    java "${type}"
 	    classrelation_ref 133165 // <generalisation>
 	  b parent class_ref 130477 // equipement
+      end
+    end
+
+    class 128140 "Combat"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128780 // CombatDuHero (<unidirectional association>)
+	relation 128780 --->
+	  a role_name "CombatDuHero" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 128780 // CombatDuHero (<unidirectional association>)
+	  b parent class_ref 129581 // Hero
+      end
+
+      classrelation 128908 // CombatDesMonstres (<unidirectional association>)
+	relation 128908 --->
+	  a role_name "CombatDesMonstres" multiplicity "1..*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 128908 // CombatDesMonstres (<unidirectional association>)
+	  b parent class_ref 129453 // Monstre
       end
     end
   end
