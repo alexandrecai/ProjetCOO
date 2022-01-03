@@ -23,4 +23,8 @@ public class Donjon {
     public ArrayList<Piece> getListePieces() {
         return pieces;
     }
+
+    public int getNbPieces() {
+        return nbPieces;
+    }
 }

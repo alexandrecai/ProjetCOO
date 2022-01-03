@@ -3,7 +3,7 @@ package Personnage;
 public class Archer extends Hero{
 
     public Archer(String nom) {
-        super(nom, 50, 50, 20);
+        super(nom, 50, 0.5, 200,70);
     }
 
 
