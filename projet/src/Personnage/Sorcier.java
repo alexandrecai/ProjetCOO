@@ -1,5 +1,7 @@
 package Personnage;
 
+import Inventaire.Inventaire;
+
 public class Sorcier extends Hero{
 
     public Sorcier(String nom) {

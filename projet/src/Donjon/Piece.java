@@ -1,5 +1,7 @@
 package Donjon;
 
+import Inventaire.Consommable;
+import Inventaire.Equipement;
 import Monstre.Monstre;
 import Monstre.FabriqueMonstre;
 
@@ -12,6 +14,8 @@ public class Piece {
     Random r = new Random();
     int nbMonstres = r.nextInt(5) + 1;
     FabriqueMonstre fabriqueMonstre = new FabriqueMonstre();
+    ArrayList<Equipement> equipementsAuSol = new ArrayList<Equipement>();
+    ArrayList<Consommable> consommablesAuSol = new ArrayList<Consommable>();
 
 
     public Piece() {
@@ -30,5 +34,21 @@ public class Piece {
 
     public ArrayList<Monstre> getMonstres() {
         return monstres;
+    }
+
+    public ArrayList<Equipement> getEquipementsAuSol() {
+        return equipementsAuSol;
+    }
+
+    public void setEquipementsAuSol(ArrayList<Equipement> equipementsAuSol) {
+        this.equipementsAuSol = equipementsAuSol;
+    }
+
+    public ArrayList<Consommable> getConsommablesAuSol() {
+        return consommablesAuSol;
+    }
+
+    public void setConsommablesAuSol(ArrayList<Consommable> consommablesAuSol) {
+        this.consommablesAuSol = consommablesAuSol;
     }
 }

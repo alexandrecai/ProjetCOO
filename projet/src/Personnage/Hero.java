@@ -1,5 +1,7 @@
 package Personnage;
 
+import Inventaire.Inventaire;
+
 public abstract class Hero {
 
     String nom;
@@ -7,6 +9,7 @@ public abstract class Hero {
     double defence;
     int attaque;
     int vitesse;
+    Inventaire inventaire = new Inventaire();
 
     public Hero(String nom, int vie, double defence, int attaque, int vitesse) {
         this.nom = nom;
@@ -14,6 +17,10 @@ public abstract class Hero {
         this.defence = defence;
         this.attaque = attaque;
         this.vitesse = vitesse;
+    }
+
+    public Inventaire getInventaire() {
+        return inventaire;
     }
 
     public String getNom() {
@@ -38,5 +45,9 @@ public abstract class Hero {
 
     public double getDefence() {
         return defence;
+    }
+
+    public void setDefence(double defence) {
+        this.defence = defence;
     }
 }
