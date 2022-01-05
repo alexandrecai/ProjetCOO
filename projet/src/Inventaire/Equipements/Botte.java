@@ -5,7 +5,7 @@ import Personnage.Hero;
 
 import java.util.Random;
 
-public class Armure implements Equipement{
+public class Botte implements Equipement{
 
     double defence;
     int attaque;
@@ -13,20 +13,20 @@ public class Armure implements Equipement{
     String puissance;
     Random r = new Random();
 
-    public Armure() {
-        this.type = "armure";
+    public Botte() {
+        this.type = "bottes";
         int rarete = r.nextInt(3) + 1;
 
         if(rarete == 1){
-            this.defence = 0.1;
+            this.defence = 0.025;
             this.puissance = rarete + " etoile";
         }
         else if(rarete == 2){
-            this.defence = 0.15;
+            this.defence = 0.05;
             this.puissance = rarete + " etoiles";
         }
         else {
-            this.defence = 0.2;
+            this.defence = 0.075;
             this.puissance = rarete + " etoiles";
         }
     }
@@ -61,7 +61,7 @@ public class Armure implements Equipement{
                 hero.setDefence(hero.getDefence() - e.getDefence());
                 hero.setDefence(hero.getDefence() + this.getDefence());
                 pasEquiper = false;
-                System.out.println("Vous venez de remplacer votre armure");
+                System.out.println("Vous venez de remplacer vos bottes");
                 System.out.println(" ");
                 System.out.println("Votre defence passe a " + hero.getDefence());
                 System.out.println(" ");
@@ -70,7 +70,7 @@ public class Armure implements Equipement{
         if(pasEquiper){
             hero.getInventaire().getObjetsEquipes().add(this);
             hero.setDefence(hero.getDefence() + this.getDefence());
-            System.out.println("Vous venez de mettre une armure");
+            System.out.println("Vous venez de mettre des bottes");
             System.out.println(" ");
             System.out.println("Votre defence passe a " + hero.getDefence());
             System.out.println(" ");

@@ -11,4 +11,6 @@ public interface Equipement {
     public String getType();
 
     public String getPuissance();
+
+    public int getAttaque();
 }

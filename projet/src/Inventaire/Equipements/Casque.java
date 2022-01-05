@@ -8,6 +8,7 @@ import java.util.Random;
 public class Casque implements Equipement {
 
     double defence;
+    int attaque;
     String type;
     String puissance;
     Random r = new Random();
@@ -46,6 +47,11 @@ public class Casque implements Equipement {
     }
 
     @Override
+    public int getAttaque(){
+        return this.attaque;
+    }
+
+    @Override
     public void equiper(Hero hero) {
         Boolean pasEquiper = true;
         for (Equipement e: hero.getInventaire().getObjetsEquipes()){
@@ -53,19 +59,22 @@ public class Casque implements Equipement {
                hero.getInventaire().getObjetsEquipes().remove(e);
                hero.getInventaire().getObjetsEquipes().add(this);
                hero.setDefence(hero.getDefence() - e.getDefence());
-               hero.setDefence(Math.round(hero.getDefence() + this.getDefence()));
+               hero.setDefence(hero.getDefence() + this.getDefence());
                pasEquiper = false;
                System.out.println("Vous venez de remplacer votre casque");
+                System.out.println(" ");
                System.out.println("Votre defence passe a " + hero.getDefence());
+                System.out.println(" ");
             }
         }
         if(pasEquiper){
             hero.getInventaire().getObjetsEquipes().add(this);
-            hero.setDefence(Math.round(hero.getDefence() + this.getDefence()));
+            hero.setDefence(hero.getDefence() + this.getDefence());
             System.out.println("Vous venez de mettre un casque");
+            System.out.println(" ");
             System.out.println("Votre defence passe a " + hero.getDefence());
+            System.out.println(" ");
         }
     }
 }
 
-//enlever les Math.round

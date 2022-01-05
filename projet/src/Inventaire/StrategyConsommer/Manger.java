@@ -1,4 +1,21 @@
 package Inventaire.StrategyConsommer;
 
-public class Manger {
+import Personnage.Hero;
+
+public class Manger implements ConsommerStrategy{
+
+    @Override
+    public void consommer(int soin, Hero hero) {
+        if((hero.getVie() + soin) >= 100){
+            hero.setVie(100);
+        }
+        else {
+            hero.setVie(hero.getVie()+soin);
+        }
+        System.out.println("Vous mangez un aliment");
+        System.out.println(" ");
+        System.out.println("Vous avez desormais " + hero.getVie() + " hp");
+        System.out.println(" ");
+    }
+
 }

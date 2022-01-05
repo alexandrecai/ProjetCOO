@@ -50,4 +50,8 @@ public abstract class Hero {
     public void setDefence(double defence) {
         this.defence = defence;
     }
+
+    public void setAttaque(int attaque) {
+        this.attaque = attaque;
+    }
 }
